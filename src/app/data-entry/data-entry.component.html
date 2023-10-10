@@ -1,0 +1,26 @@
+<!-- Import Angular Material modules and add them to your component's HTML template -->
+<div  [@fadeInOut]="showElement" class="container">
+    <mat-card>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput [(ngModel)]="inputData" placeholder="Enter data">
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="saveData()">Save</button>
+        <button mat-raised-button (click)="readData()">Read Data</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card *ngIf="savedData">
+      <mat-card-content>
+        <p>Saved Data:</p>
+        <pre>{{ savedData }}</pre>
+      </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="errorMessage" color="warn">
+      <mat-card-content>
+        <p class="error">{{ errorMessage }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
